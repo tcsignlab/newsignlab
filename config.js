@@ -13,7 +13,7 @@ const CONFIG = {
     },
     
     // Admin password (change this!)
-    adminPassword: 'Accord@0933',
+    adminPassword: 'admin123',
     
     // Default settings
     defaultCategory: 'banner',
