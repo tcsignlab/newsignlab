@@ -24,7 +24,8 @@ function showLoginScreen() {
         e.preventDefault();
         const password = document.getElementById('adminPassword').value;
         
-        if (password === CONFIG.adminPassword) {
+        const hash = await CONFIG_HELPERS.hash(password);
+if (hash === CONFIG.adminPasswordHash) {
             CONFIG_HELPERS.setAdminAuth(true);
             showAdminPanel();
         } else {
