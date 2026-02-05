@@ -1,8 +1,8 @@
 // Configuration for Google Sheets integration
 const CONFIG = {
     // Google Sheets Configuration
-    sheetsId: '', // Add your Google Sheets ID here
-    apiKey: '', // Add your Google API key here
+    sheetsId: '1BXHZ_6EO7oKgIt1IxpuRFsDuu2-0LS2M7reuX4sAPfM', // Add your Google Sheets ID here
+    apiKey: 'AIzaSyB4VkXCiACigBico7QE8j0EUD7bG3OAEBY', // Add your Google API key here
     
     // Sheet names
     sheets: {
@@ -13,7 +13,7 @@ const CONFIG = {
     },
     
     // Admin password (change this!)
-    adminPassword: 'admin123',
+    adminPassword: 'Accord@0933',
     
     // Default settings
     defaultCategory: 'banner',
