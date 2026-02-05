@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signs365 Clone - Product Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h1>SIGNS<span class="logo-365">365</span></h1>
+        </div>
+        
+        <nav class="main-nav">
+            <a href="#" class="nav-item" data-category="banner">
+                <i class="fas fa-flag"></i>
+                <span>BANNER</span>
+            </a>
+            <a href="#" class="nav-item" data-category="rigid">
+                <i class="fas fa-square"></i>
+                <span>RIGID</span>
+            </a>
+            <a href="#" class="nav-item" data-category="adhesive">
+                <i class="fas fa-sticky-note"></i>
+                <span>ADHESIVE</span>
+            </a>
+            <a href="#" class="nav-item" data-category="handheld">
+                <i class="fas fa-sign"></i>
+                <span>HANDHELD</span>
+            </a>
+            <a href="#" class="nav-item" data-category="magnet">
+                <i class="fas fa-magnet"></i>
+                <span>MAGNET</span>
+            </a>
+            <a href="#" class="nav-item" data-category="apparel">
+                <i class="fas fa-tshirt"></i>
+                <span>APPAREL</span>
+            </a>
+            <a href="#" class="nav-item" data-category="misc">
+                <i class="fas fa-th"></i>
+                <span>MISC</span>
+            </a>
+        </nav>
+
+        <div class="header-right">
+            <a href="#" class="header-link" id="currency">
+                <i class="fas fa-flag-usa"></i> CURRENCY
+            </a>
+            <a href="image-zone.html" class="header-link">
+                <i class="fas fa-images"></i> IMAGE ZONE
+            </a>
+            <a href="cart.html" class="header-link">
+                <i class="fas fa-shopping-cart"></i> CART
+            </a>
+            <a href="#" class="header-link menu-toggle">
+                <i class="fas fa-bars"></i> MENU
+            </a>
+        </div>
+    </header>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <div class="side-menu-content">
+            <button class="close-menu">&times;</button>
+            <ul>
+                <li><a href="image-zone.html">Image Zone</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="#">Manage Account</a></li>
+                <li><a href="#">Manage Payments</a></li>
+                <li><a href="#">Order History</a></li>
+                <li><a href="index.html">Product Catalog</a></li>
+                <li><a href="#">How To Videos</a></li>
+                <li><a href="#">What's New?</a></li>
+                <li><a href="admin.html" id="adminLink" style="display:none;">Admin Panel</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner" id="heroBanner">
+        <div class="banner-slide active">
+            <img src="placeholder-banner.jpg" alt="Banner" id="heroImage">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h2 class="category-title" id="categoryTitle">Banner Products</h2>
+        
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be loaded here dynamically -->
+        </div>
+
+        <div class="loading" id="loading">
+            <i class="fas fa-spinner fa-spin"></i> Loading products...
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="#">HOW ARE WE DOING?</a>
+            <span>Copyright © 2026</span>
+            <a href="#">Terms and Conditions</a>
+            <span>(800) 265-8830</span>
+            <a href="#">Customer Service Hours</a>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
