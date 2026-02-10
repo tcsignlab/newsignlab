@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TC SIGNLAB - Product Catalog</title>
+    <title>Signs365 Clone - Product Catalog</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -11,10 +11,14 @@
     <!-- Header -->
     <header class="header">
         <div class="logo">
-            <h1>TC<span class="logo-365">SIGNLAB</span></h1>
+            <h1>SIGNS<span class="logo-365">365</span></h1>
         </div>
         
         <nav class="main-nav">
+            <a href="#" class="nav-item active" data-category="whats-new">
+                <i class="fas fa-star"></i>
+                <span>WHAT'S NEW</span>
+            </a>
             <a href="#" class="nav-item" data-category="banner">
                 <i class="fas fa-flag"></i>
                 <span>BANNER</span>
@@ -66,6 +70,7 @@
         <div class="side-menu-content">
             <button class="close-menu">&times;</button>
             <ul>
+                <li><a href="index.html">What's New</a></li>
                 <li><a href="image-zone.html">Image Zone</a></li>
                 <li><a href="cart.html">Cart</a></li>
                 <li><a href="#">Manage Account</a></li>
@@ -80,23 +85,168 @@
         </div>
     </div>
 
-    <!-- Hero Banner -->
-    <div class="hero-banner" id="heroBanner">
-        <div class="banner-slide active">
-            <img src="generated_video2.mp4" alt="Banner" id="heroImage">
+    <!-- Hero Video Banner -->
+    <div class="hero-video-container">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="hero-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay">
+            <h1 class="hero-title">Professional Signs & Printing</h1>
+            <p class="hero-subtitle">High Quality Products • Fast 24-Hour Turnaround • Nationwide Shipping</p>
         </div>
     </div>
 
     <!-- Main Content -->
     <main class="main-content">
-        <h2 class="category-title" id="categoryTitle">Banner Products</h2>
-        
-        <div class="products-grid" id="productsGrid">
-            <!-- Products will be loaded here dynamically -->
+        <!-- What's New Section (Default) -->
+        <div id="whatsNewSection" class="content-section active">
+            <h2 class="section-title">What's New at Signs365</h2>
+            
+            <div class="whats-new-grid">
+                <div class="announcement-card featured">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>New Product Launch</h3>
+                    <p>Introducing our premium HD Banner collection with 13oz, 15oz, and 18oz options. Get professional-grade banners at competitive prices with our industry-leading 24-hour turnaround.</p>
+                    <a href="#" class="card-link" data-category="banner">Explore Banners →</a>
+                </div>
+                
+                <div class="announcement-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Fast Turnaround</h3>
+                    <p>All standard orders produced within 24 hours. Need it faster? Ask about our rush service options.</p>
+                </div>
+                
+                <div class="announcement-card">
+                    <div class="card-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Full Color Printing</h3>
+                    <p>Vibrant, full-color digital printing on all materials. No setup fees or minimum quantities.</p>
+                </div>
+                
+                <div class="announcement-card">
+                    <div class="card-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Premium Quality</h3>
+                    <p>Industry-leading materials and printing technology. 100% satisfaction guaranteed.</p>
+                </div>
+            </div>
+
+            <!-- Contact Form Section -->
+            <div class="contact-section">
+                <h2>Get In Touch</h2>
+                <p class="contact-intro">Have questions or need a custom quote? We're here to help!</p>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Call Us</h4>
+                                <p>(800) 265-8830</p>
+                                <p class="info-detail">Mon-Fri: 8am-6pm EST</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email Us</h4>
+                                <p>support@signs365.com</p>
+                                <p class="info-detail">We respond within 2 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Production Time</h4>
+                                <p>24 Hours Standard</p>
+                                <p class="info-detail">Rush options available</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-truck"></i>
+                            <div>
+                                <h4>Shipping</h4>
+                                <p>Nationwide</p>
+                                <p class="info-detail">Free shipping on orders $500+</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <h3>Send Us A Message</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Name *</label>
+                                <input type="text" id="contactName" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactEmail">Email *</label>
+                                <input type="email" id="contactEmail" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactPhone">Phone</label>
+                                <input type="tel" id="contactPhone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactCompany">Company</label>
+                                <input type="text" id="contactCompany" name="company">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactSubject">Subject *</label>
+                            <select id="contactSubject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="quote">Request a Quote</option>
+                                <option value="product">Product Question</option>
+                                <option value="order">Order Status</option>
+                                <option value="custom">Custom Project</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage">Message *</label>
+                            <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        
+                        <p class="form-note">* Required fields. We'll respond within 2 business hours.</p>
+                    </form>
+                </div>
+            </div>
         </div>
 
-        <div class="loading" id="loading">
-            <i class="fas fa-spinner fa-spin"></i> Loading products...
+        <!-- Products Section -->
+        <div id="productsSection" class="content-section" style="display:none;">
+            <h2 class="category-title" id="categoryTitle">Banner Products</h2>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here dynamically -->
+            </div>
+
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner fa-spin"></i> Loading products...
+            </div>
         </div>
     </main>
 

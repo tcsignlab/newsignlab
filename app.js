@@ -1,5 +1,5 @@
 // Main application logic
-let currentCategory = 'banner';
+let currentCategory = 'whats-new';
 let productsData = [];
 
 // Initialize app when DOM loads
@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 async function initializeApp() {
     setupEventListeners();
     await loadProducts();
-    updateCategoryDisplay();
+    // Show What's New by default
+    showWhatsNew();
 }
 
 // Setup event listeners
@@ -21,10 +22,31 @@ function setupEventListeners() {
             e.preventDefault();
             const category = item.dataset.category;
             if (category) {
+                if (category === 'whats-new') {
+                    showWhatsNew();
+                } else {
+                    switchCategory(category);
+                }
+            }
+        });
+    });
+    
+    // Card links in What's New section
+    document.querySelectorAll('.card-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const category = link.dataset.category;
+            if (category) {
                 switchCategory(category);
             }
         });
     });
+    
+    // Contact form
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactSubmit);
+    }
     
     // Menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -60,6 +82,30 @@ function setupEventListeners() {
             CONFIG_HELPERS.setAdminAuth(false);
             window.location.href = 'index.html';
         });
+    }
+}
+
+// Show What's New section
+function showWhatsNew() {
+    currentCategory = 'whats-new';
+    
+    // Update active nav item
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.dataset.category === 'whats-new') {
+            item.classList.add('active');
+        }
+    });
+    
+    // Show What's New section, hide products
+    const whatsNewSection = document.getElementById('whatsNewSection');
+    const productsSection = document.getElementById('productsSection');
+    
+    if (whatsNewSection) {
+        whatsNewSection.style.display = 'block';
+    }
+    if (productsSection) {
+        productsSection.style.display = 'none';
     }
 }
 
@@ -150,6 +196,17 @@ function switchCategory(category) {
             item.classList.add('active');
         }
     });
+    
+    // Hide What's New, show products
+    const whatsNewSection = document.getElementById('whatsNewSection');
+    const productsSection = document.getElementById('productsSection');
+    
+    if (whatsNewSection) {
+        whatsNewSection.style.display = 'none';
+    }
+    if (productsSection) {
+        productsSection.style.display = 'block';
+    }
     
     updateCategoryDisplay();
 }
@@ -289,3 +346,32 @@ function showNotification(message, type = 'success') {
 
 // Update cart count on page load
 updateCartCount();
+
+// Handle contact form submission
+function handleContactSubmit(e) {
+    e.preventDefault();
+    
+    const formData = {
+        name: document.getElementById('contactName').value,
+        email: document.getElementById('contactEmail').value,
+        phone: document.getElementById('contactPhone').value,
+        company: document.getElementById('contactCompany').value,
+        subject: document.getElementById('contactSubject').value,
+        message: document.getElementById('contactMessage').value,
+        timestamp: new Date().toISOString()
+    };
+    
+    // In production, send to backend
+    console.log('Contact form submitted:', formData);
+    
+    // Show success message
+    showNotification('Thank you! We\'ll respond within 2 business hours.', 'success');
+    
+    // Reset form
+    document.getElementById('contactForm').reset();
+    
+    // Store in localStorage for admin reference
+    const contacts = JSON.parse(localStorage.getItem('contact_submissions') || '[]');
+    contacts.push(formData);
+    localStorage.setItem('contact_submissions', JSON.stringify(contacts));
+}

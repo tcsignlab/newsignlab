@@ -36,7 +36,7 @@ body {
     color: #fff;
     padding: 2px 8px;
     border-radius: 50%;
-    font-size: 32px;
+    font-size: 18px;
     margin-left: 5px;
 }
 
@@ -152,7 +152,52 @@ body {
     background-color: #f7f7f7;
 }
 
-/* Hero Banner */
+/* Hero Video Banner */
+.hero-video-container {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    max-width: 800px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Hero Banner (fallback) */
 .hero-banner {
     width: 100%;
     height: 300px;
@@ -175,6 +220,252 @@ body {
     max-width: 1400px;
     margin: 40px auto;
     padding: 0 20px;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+/* What's New Section */
+.whats-new-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.announcement-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.announcement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.announcement-card.featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.announcement-card.featured .card-icon {
+    background: rgba(255,255,255,0.3);
+}
+
+.card-icon i {
+    font-size: 28px;
+    color: #667eea;
+}
+
+.announcement-card.featured .card-icon i {
+    color: #fff;
+}
+
+.announcement-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.announcement-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.announcement-card.featured p {
+    color: rgba(255,255,255,0.95);
+}
+
+.card-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: transform 0.3s;
+}
+
+.card-link:hover {
+    transform: translateX(5px);
+}
+
+/* Contact Section */
+.contact-section {
+    background: #f7f7f7;
+    padding: 60px 40px;
+    border-radius: 15px;
+    margin-top: 40px;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.contact-intro {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.info-item i {
+    font-size: 28px;
+    color: #667eea;
+    width: 40px;
+    text-align: center;
+}
+
+.info-item h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.info-item p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.info-detail {
+    font-size: 14px;
+    color: #999;
+}
+
+/* Contact Form */
+.contact-form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.contact-form h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn i {
+    margin-right: 10px;
+}
+
+.form-note {
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+    margin-top: 15px;
 }
 
 .category-title {
@@ -1258,5 +1549,56 @@ body {
         width: 100%;
         justify-content: space-between;
         margin-top: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
+    
+    .configurator-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-video-container {
+        height: 250px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 14px;
+    }
+    
+    .whats-new-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .announcement-card.featured {
+        grid-column: 1;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-section {
+        padding: 40px 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
     }
 }
