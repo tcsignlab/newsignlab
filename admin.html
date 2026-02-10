@@ -73,10 +73,32 @@
                 <button id="addCategoryBtn" class="primary-btn">
                     <i class="fas fa-plus"></i> Add New Category
                 </button>
+                <button id="importCategoriesBtn" class="secondary-btn">
+                    <i class="fas fa-download"></i> Import from Google Sheets
+                </button>
+                <button id="exportCategoriesBtn" class="secondary-btn">
+                    <i class="fas fa-file-export"></i> Export Categories
+                </button>
             </div>
 
-            <div class="categories-grid" id="categoriesGrid">
-                <!-- Categories will be loaded here -->
+            <div class="categories-management">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Sort Order</th>
+                            <th>Icon</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Products</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="categoriesTableBody">
+                        <!-- Categories will be loaded here -->
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -191,6 +213,72 @@
                 <div class="modal-actions">
                     <button type="submit" class="primary-btn">Save Product</button>
                     <button type="button" class="secondary-btn" id="cancelProductBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Category Edit Modal -->
+    <div class="modal" id="categoryModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeCategoryModal">&times;</span>
+            <h2 id="categoryModalTitle">Add New Category</h2>
+            
+            <form id="categoryForm">
+                <div class="form-group">
+                    <label>Category ID:</label>
+                    <input type="text" id="categoryIdInput" required pattern="[a-z-]+" placeholder="lowercase-with-hyphens">
+                    <small>Lowercase letters and hyphens only (e.g., "custom-signs")</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Category Name:</label>
+                    <input type="text" id="categoryNameInput" required placeholder="Display name">
+                </div>
+
+                <div class="form-group">
+                    <label>Description:</label>
+                    <textarea id="categoryDescriptionInput" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Icon (Font Awesome):</label>
+                    <div class="icon-input-group">
+                        <input type="text" id="categoryIconInput" required placeholder="fa-flag" value="fa-tag">
+                        <span class="icon-preview"><i class="fas fa-tag" id="iconPreview"></i></span>
+                    </div>
+                    <small>Font Awesome icon name (e.g., fa-flag, fa-square, fa-sticky-note)</small>
+                    <div class="icon-suggestions">
+                        <button type="button" class="icon-suggestion" data-icon="fa-flag"><i class="fas fa-flag"></i> fa-flag</button>
+                        <button type="button" class="icon-suggestion" data-icon="fa-square"><i class="fas fa-square"></i> fa-square</button>
+                        <button type="button" class="icon-suggestion" data-icon="fa-sticky-note"><i class="fas fa-sticky-note"></i> fa-sticky-note</button>
+                        <button type="button" class="icon-suggestion" data-icon="fa-sign"><i class="fas fa-sign"></i> fa-sign</button>
+                        <button type="button" class="icon-suggestion" data-icon="fa-magnet"><i class="fas fa-magnet"></i> fa-magnet</button>
+                        <button type="button" class="icon-suggestion" data-icon="fa-tshirt"><i class="fas fa-tshirt"></i> fa-tshirt</button>
+                        <button type="button" class="icon-suggestion" data-icon="fa-th"><i class="fas fa-th"></i> fa-th</button>
+                        <button type="button" class="icon-suggestion" data-icon="fa-star"><i class="fas fa-star"></i> fa-star</button>
+                        <button type="button" class="icon-suggestion" data-icon="fa-paint-brush"><i class="fas fa-paint-brush"></i> fa-paint-brush</button>
+                        <button type="button" class="icon-suggestion" data-icon="fa-truck"><i class="fas fa-truck"></i> fa-truck</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Sort Order:</label>
+                    <input type="number" id="categorySortInput" required min="1" value="1">
+                    <small>Lower numbers appear first in navigation</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Status:</label>
+                    <select id="categoryStatusInput">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="primary-btn">Save Category</button>
+                    <button type="button" class="secondary-btn" id="cancelCategoryBtn">Cancel</button>
                 </div>
             </form>
         </div>
